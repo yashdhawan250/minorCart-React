@@ -16,6 +16,30 @@ class CartItem extends React.Component{
 
     increaseQuantity =() =>{
         console.log('this',this.state);
+        /*this.setState({
+            qty: this.state.qty + 1
+        });*/
+
+        this.setState((prevState)=>{
+            return{
+                qty: prevState.qty + 1,
+            }
+        })
+    }
+    decreaseQuantity =() =>{
+        console.log('this',this.state);
+        /*this.setState({
+            qty: this.state.qty - 1
+        });*/
+       const {qty} = this.state;
+       if(qty === 0)
+       return;
+        this.setState((prevState)=>{
+            return{
+                
+                qty: prevState.qty - 1,
+            }
+        })
     }
 
     render(){
@@ -34,13 +58,14 @@ class CartItem extends React.Component{
                   <img 
                     alt="icon" 
                     className="action-icons" 
-                    src="https://as1.ftcdn.net/v2/jpg/03/73/49/86/500_F_373498649_nBxauQ0ipBSVrVcMpWWVmTpXu3BLvRyY.jpg"
+                    src="https://as2.ftcdn.net/v2/jpg/03/22/32/37/1000_F_322323723_HJb8d1u2NuI8dMAjvC62TXbSqn63vpI3.jpg"
                     onClick={this.increaseQuantity.bind(this)}
                     />
                   <img 
                     alt="icon" 
                     className="action-icons" 
-                    src="https://as2.ftcdn.net/v2/jpg/03/22/32/37/1000_F_322323723_HJb8d1u2NuI8dMAjvC62TXbSqn63vpI3.jpg"
+                    src=" https://as1.ftcdn.net/v2/jpg/03/73/49/86/500_F_373498649_nBxauQ0ipBSVrVcMpWWVmTpXu3BLvRyY.jpg"
+                    onClick={this.decreaseQuantity.bind(this)}
                     />
                   <img 
                     alt="icon" 
